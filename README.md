@@ -20,8 +20,10 @@ A **production-ready**, flexible and easy-to-use framework for fine-tuning machi
 - 📈 **Real-time Monitoring**: Live training metrics and interactive dashboards
 - 🔄 **Model Comparison**: Side-by-side performance analysis
 - 🌐 **Cloud-Ready**: AWS, Azure, GCP deployment templates
+- 🤖 **AI-Assisted Fine-Tuning**: LM Studio integration for intelligent guidance (v2.1.0+)
 
-> **See [ENHANCEMENTS.md](ENHANCEMENTS.md) for detailed documentation of new features!**
+> **See [ENHANCEMENTS.md](ENHANCEMENTS.md) for detailed documentation of new features!**  
+> **See [LMSTUDIO_INTEGRATION.md](LMSTUDIO_INTEGRATION.md) for AI assistant guide!**
 
 ## 🎯 Quick Start Examples
 
