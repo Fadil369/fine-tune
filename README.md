@@ -1,9 +1,10 @@
-# Fine-Tune Custom Models
+# Fine-Tune Custom Models 🚀
 
-A flexible and easy-to-use framework for fine-tuning machine learning models on custom datasets. Supports various model types including causal language models, sequence-to-sequence models, and classification models.
+A **production-ready**, flexible and easy-to-use framework for fine-tuning machine learning models on custom datasets. Supports various model types including causal language models, sequence-to-sequence models, and classification models.
 
-## Features
+## ✨ Features
 
+### Core Capabilities
 - 🚀 **Easy to Use**: Simple configuration-based fine-tuning
 - 🎯 **Multiple Model Types**: Support for causal LM, seq2seq, and classification
 - 💾 **Data Flexibility**: Works with CSV, JSON, TXT files or HuggingFace datasets
@@ -11,6 +12,39 @@ A flexible and easy-to-use framework for fine-tuning machine learning models on 
 - 📊 **Monitoring**: TensorBoard and Weights & Biases integration
 - 🔧 **Customizable**: Extensive configuration options
 - 🎓 **Examples**: Pre-configured examples for common use cases
+
+### 🆕 Advanced Features (NEW!)
+- 🎯 **Hyperparameter Optimization**: Grid search, random search, and Bayesian optimization with Optuna
+- 📊 **Advanced Visualizations**: Training curves, gradient analysis, model comparison dashboards
+- 🚀 **Production Deployment**: FastAPI REST API, Gradio UI, Docker containerization
+- 📈 **Real-time Monitoring**: Live training metrics and interactive dashboards
+- 🔄 **Model Comparison**: Side-by-side performance analysis
+- 🌐 **Cloud-Ready**: AWS, Azure, GCP deployment templates
+
+> **See [ENHANCEMENTS.md](ENHANCEMENTS.md) for detailed documentation of new features!**
+
+## 🎯 Quick Start Examples
+
+### Standard Training
+```bash
+python finetune.py --config config.yaml
+```
+
+### Hyperparameter Optimization
+```bash
+python hyperparameter_tuning.py --config config.yaml --method optuna --n-trials 50
+```
+
+### Create Visualizations
+```bash
+python visualization_tools.py --output-dir ./output --dashboard
+```
+
+### Deploy to Production
+```bash
+python deployment_utils.py --output-dir ./deployment
+cd deployment && python api_server.py
+```
 
 ## Installation
 
