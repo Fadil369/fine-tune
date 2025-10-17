@@ -1,0 +1,59 @@
+# Configuration for Instruction-Following Fine-tuning
+model:
+  name: "gpt2-medium"
+  type: "causal_lm"
+  load_in_8bit: false
+  load_in_4bit: false
+
+training:
+  output_dir: "./output/instruction-model"
+  num_epochs: 3
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  learning_rate: 5.0e-5
+  warmup_steps: 100
+  max_steps: -1
+  logging_steps: 10
+  save_steps: 200
+  eval_steps: 200
+  save_total_limit: 2
+  fp16: false
+  bf16: false
+
+data:
+  dataset_name: null
+  train_file: "examples/instruction_data.json"
+  validation_file: null
+  test_file: null
+  max_seq_length: 512
+  text_column: "text"
+  label_column: null
+
+lora:
+  use_lora: true
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+  target_modules: ["c_attn"]
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+logging:
+  use_wandb: false
+  wandb_project: "instruction-finetuning"
+  wandb_run_name: null
+  use_tensorboard: true
+  log_dir: "./logs/instruction"
+
+optimizer:
+  name: "adamw"
+  weight_decay: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+
+scheduler:
+  name: "cosine"
+  num_warmup_steps: 100
+
+seed: 42

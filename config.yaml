@@ -1,0 +1,59 @@
+# Fine-tuning Configuration
+model:
+  name: "gpt2"  # Model name from HuggingFace or local path
+  type: "causal_lm"  # Options: causal_lm, seq2seq, classification
+  load_in_8bit: false
+  load_in_4bit: false
+
+training:
+  output_dir: "./output"
+  num_epochs: 3
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-5
+  warmup_steps: 100
+  max_steps: -1  # -1 means use num_epochs
+  logging_steps: 10
+  save_steps: 500
+  eval_steps: 500
+  save_total_limit: 3
+  fp16: false
+  bf16: false
+
+data:
+  dataset_name: null  # HuggingFace dataset name or null for local
+  train_file: null  # Path to training data (CSV/JSON/TXT)
+  validation_file: null  # Path to validation data
+  test_file: null  # Path to test data
+  max_seq_length: 512
+  text_column: "text"  # Column name containing text data
+  label_column: null  # Column name for labels (if classification)
+
+lora:
+  use_lora: false
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1
+  target_modules: ["q_proj", "v_proj"]
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+logging:
+  use_wandb: false
+  wandb_project: "fine-tuning"
+  wandb_run_name: null
+  use_tensorboard: true
+  log_dir: "./logs"
+
+optimizer:
+  name: "adamw"  # Options: adamw, sgd, adafactor
+  weight_decay: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+
+scheduler:
+  name: "linear"  # Options: linear, cosine, constant
+  num_warmup_steps: 100
+
+seed: 42
